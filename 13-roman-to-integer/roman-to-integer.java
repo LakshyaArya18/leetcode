@@ -3,7 +3,6 @@ import java.util.Map;
 
 class Solution {
     public int romanToInt(String s) {
-        // Map each Roman symbol to its integer value
         Map<Character, Integer> map = new HashMap<>();
         map.put('I', 1);
         map.put('V', 5);
@@ -18,12 +17,10 @@ class Solution {
 
         for (int i = 0; i < length; i++) {
             int currentVal = map.get(s.charAt(i));
-
-            // Check if a smaller value comes before a larger value
             if (i < length - 1 && currentVal < map.get(s.charAt(i + 1))) {
-                total -= currentVal; // Subtraction rule (e.g., IV = -1 + 5 = 4)
+                total -= currentVal;
             } else {
-                total += currentVal; // Standard addition
+                total += currentVal;
             }
         }
 
